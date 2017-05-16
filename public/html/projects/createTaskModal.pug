@@ -17,6 +17,10 @@
 			.col-sm-6.col-sm-offset-4: .checkbox: label
 				input(type="checkbox" ng-model="task.debug")
 				| Debug (<code>-vvvv</code>)
+		.form-group
+			.col-sm-6.col-sm-offset-4: .checkbox: label
+				input(type="checkbox" ng-model="task.pull_repository")
+				| Git Pull Repository
 
 .modal-footer
 	button.btn.btn-default.pull-left(ng-click="$dismiss()") Dismiss

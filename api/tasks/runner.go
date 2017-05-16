@@ -95,10 +95,14 @@ func (t *task) run() {
 		return
 	}
 
-	if err := t.updateRepository(); err != nil {
-		t.log("Failed updating repository: " + err.Error())
-		t.fail()
-		return
+	if t.task.PullRepository {
+		if err := t.updateRepository(); err != nil {
+			t.log("Failed updating repository: " + err.Error())
+			t.fail()
+			return
+		}
+	} else {
+		t.log("No need git pull repository.")
 	}
 
 	if err := t.installInventory(); err != nil {
