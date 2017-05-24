@@ -303,6 +303,9 @@ func (t *task) runPlaybook() error {
 
 	if t.inventory.SshKeyID != nil {
 		args = append(args, "--private-key="+t.inventory.SshKey.GetPath())
+		//add ssh connection user
+		args = append(args, "--user="+t.inventory.SshKey.Name)
+
 	}
 
 	if t.task.Debug {
